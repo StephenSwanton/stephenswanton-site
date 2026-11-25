@@ -23,7 +23,7 @@
         <div class="price">${money(l.price, l.rental)}</div>
         <div class="lfacts">${esc(facts(l))}${l.typeLabel && facts(l) !== l.typeLabel ? " · " + esc(l.typeLabel) : ""}</div>
         <div class="addr">${esc(l.address)}</div>
-        <div class="courtesy">Listing courtesy of ${esc(l.office || "the listing brokerage")} · MLS ${esc(l.mls)}</div>
+        <div class="courtesy">Listing courtesy of ${esc(l.office || "the listing brokerage")} · <span style="white-space:nowrap">MLS ${esc(l.mls)}</span></div>
       </div></a>`;
   }
   const skeletons = (n) => Array.from({ length: n }, () => `<div class="card skeleton"><div class="ph"></div><div class="body"><div class="price">&nbsp;</div></div></div>`).join("");
