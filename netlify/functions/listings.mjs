@@ -1,4 +1,4 @@
-import { spark, system, card, json, AGENT_ID, RENTAL_TYPES } from "../lib/spark.mjs";
+import { spark, system, card, json, myKeys, AGENT_ID, RENTAL_TYPES } from "../lib/spark.mjs";
 
 const SELECT = [
   "ListingId", "UnparsedAddress", "SubdivisionName", "ListPrice", "MlsStatus", "PropertyType",
@@ -45,7 +45,8 @@ export default async (req) => {
       _page: String(page),
       _pagination: "1",
     });
-    let results = (d.Results || []).map(card);
+    const mine = mode === "featured" ? new Set((d.Results || []).map((r) => r.Id)) : await myKeys();
+    let results = (d.Results || []).map((r) => card(r, mine));
     if (mode === "featured") {
       const seen = new Set();
       results = results.filter((r) => { const k = (r.address || "").toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; });

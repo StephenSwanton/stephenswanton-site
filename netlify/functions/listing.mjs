@@ -1,4 +1,4 @@
-import { spark, system, card, json, photoUrl } from "../lib/spark.mjs";
+import { spark, system, card, json, photoUrl, myKeys, clean as cleanAll } from "../lib/spark.mjs";
 
 export default async (req) => {
   const id = new URL(req.url).searchParams.get("id") || "";
@@ -6,12 +6,12 @@ export default async (req) => {
   try {
     const d = await spark(`/listings/${id}`, { _expand: "Photos,VirtualTours" });
     const r = d.Results?.[0];
-    const f = r?.StandardFields;
+    const f = r ? cleanAll(r.StandardFields) : null;
     if (!f || f.City !== "St. Croix") return json({ error: "Not found" }, 404);
     const sys = await system();
     const clean = (v) => (typeof v === "string" && /^\*+$/.test(v) ? "" : v);
     return json({
-      ...card(r),
+      ...card(r, await myKeys()),
       remarks: clean(f.PublicRemarks) || "",
       yearBuilt: clean(f.YearBuilt) || null,
       daysOnMarket: f.DaysOnMarket ?? null,

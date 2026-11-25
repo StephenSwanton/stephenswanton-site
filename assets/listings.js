@@ -30,7 +30,7 @@
 
   function disclaimerHTML(data, updated) {
     return `${data.idxLogo ? `<img src="${esc(data.idxLogo)}" alt="MLS IDX logo">` : ""}
-      <p>${esc(data.disclaimer || FALLBACK_DISCLAIMER)}</p>
+      <p>${data.disclaimer ? esc(data.disclaimer) + " " : ""}${esc(FALLBACK_DISCLAIMER)}</p>
       ${updated ? `<p>Listing information last updated ${esc(fmtDate(updated))}.</p>` : ""}`;
   }
   async function get(url) {

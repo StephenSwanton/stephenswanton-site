@@ -68,14 +68,37 @@ export function photoUrl(p, size = "large") {
   return "";
 }
 
-export function card(r) {
-  const f = r.StandardFields || {};
+// IDX feeds mask some fields as "********"; treat those as empty.
+const masked = (v) => typeof v === "string" && /^\*+$/.test(v);
+export function clean(f) {
+  const out = {};
+  for (const [k, v] of Object.entries(f || {})) out[k] = masked(v) ? null : v;
+  return out;
+}
+
+let mineCache = { at: 0, keys: new Set() };
+// Keys of all of Stephen's current listings (sale, rental, active or pending), refreshed every 10 minutes.
+export async function myKeys() {
+  if (Date.now() - mineCache.at < 600000) return mineCache.keys;
+  try {
+    const d = await spark("/listings", {
+      _filter: `City Eq 'St. Croix' And (ListAgentId Eq '${AGENT_ID}' Or CoListAgentId Eq '${AGENT_ID}')`,
+      _select: "ListingId",
+      _limit: "100",
+    });
+    mineCache = { at: Date.now(), keys: new Set((d.Results || []).map((r) => r.Id)) };
+  } catch {}
+  return mineCache.keys;
+}
+
+export function card(r, mine = new Set()) {
+  const f = clean(r.StandardFields);
   const photo = (f.Photos || []).find((p) => p.Primary) || (f.Photos || [])[0];
   return {
     key: r.Id,
     mls: f.ListingId,
     address: f.UnparsedAddress,
-    subdivision: f.SubdivisionName && f.SubdivisionName !== "********" ? f.SubdivisionName : "",
+    subdivision: f.SubdivisionName || "",
     price: f.ListPrice,
     status: f.MlsStatus,
     type: f.PropertyType,
@@ -86,7 +109,7 @@ export function card(r) {
     acres: f.LotSizeAcres ?? null,
     office: f.ListOfficeName,
     updated: f.ListingUpdateTimestamp || f.ModificationTimestamp,
-    mine: f.ListAgentId === AGENT_ID || f.CoListAgentId === AGENT_ID,
+    mine: mine.has(r.Id) || f.ListAgentId === AGENT_ID || f.CoListAgentId === AGENT_ID,
     rental: RENTAL_TYPES.includes(f.PropertyType),
     photo: photoUrl(photo, "card"),
     photoCount: f.PhotosCount ?? (f.Photos || []).length,
