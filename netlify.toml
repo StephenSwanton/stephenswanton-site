@@ -1,3 +1,11 @@
+[build]
+  publish = "."
+  command = ""
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # Old Roomvu addresses point to the matching new pages
 [[redirects]]
   from = "/neighborhoods"
