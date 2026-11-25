@@ -1,0 +1,49 @@
+# Old Roomvu addresses point to the matching new pages
+[[redirects]]
+  from = "/neighborhoods"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/neighborhood/*"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/blog"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/services/page/home-buying"
+  to = "/buy"
+  status = 301
+[[redirects]]
+  from = "/services/page/home-selling"
+  to = "/sell"
+  status = 301
+[[redirects]]
+  from = "/services/page/property-management"
+  to = "/contact"
+  status = 301
+[[redirects]]
+  from = "/services/page/luxury-high-value-homes"
+  to = "/listings"
+  status = 301
+[[redirects]]
+  from = "/ask-me-anything"
+  to = "/contact"
+  status = 301
+[[redirects]]
+  from = "/homeafford"
+  to = "/buy"
+  status = 301
+[[redirects]]
+  from = "/estimates"
+  to = "/sell"
+  status = 301
+[[redirects]]
+  from = "/list-homes"
+  to = "/listings"
+  status = 301
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy"
+  status = 301

@@ -63,6 +63,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 
 <style>
   @font-face{font-family:"Coldwell Sans";src:url("fonts/ColdwellSans-Light.woff2") format("woff2");font-weight:300;font-display:swap}
@@ -106,7 +107,7 @@
   nav ul{display:flex;gap:24px;list-style:none}
   nav ul a{color:var(--mist);text-decoration:none;font-size:.9rem;font-weight:500}
   nav ul a:hover{color:var(--white)}
-  @media (max-width:760px){nav{display:none}}
+  @media (max-width:760px){header.site .wrap{flex-wrap:wrap}nav{width:100%;padding-bottom:14px}nav ul{flex-wrap:wrap;gap:8px 16px}}
 
   /* Hero */
   .hero{background:linear-gradient(165deg,var(--midnight) 0%,var(--cb-blue) 55%,var(--slate) 100%);color:var(--white)}
@@ -208,10 +209,12 @@
     </div>
     <nav>
       <ul>
+        <li><a href="/listings">Search Listings</a></li>
+        <li><a href="/listings#rentals">Rentals</a></li>
+        <li><a href="/buy">Buy</a></li>
+        <li><a href="/sell">Sell</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -225,7 +228,7 @@
       <p class="lead">Award-winning agent with Coldwell Banker St.&nbsp;Croix Realty, helping buyers and sellers with homes, luxury waterfront estates, land, condos and commercial property across St.&nbsp;Croix since 2018.</p>
       <div class="ctas">
         <a class="btn btn-primary" href="tel:+13402774771">Call 340-277-4771</a>
-        <a class="btn btn-ghost" href="mailto:Stephen@ColdwellBankerVI.com?subject=St.%20Croix%20real%20estate%20inquiry">Email Stephen</a>
+        <a class="btn btn-ghost" href="/listings">Search St.&nbsp;Croix listings</a>
       </div>
     </div>
     <div class="portrait">
@@ -246,6 +249,19 @@
     </div>
   </div>
 </div>
+
+<section id="listings" style="padding-bottom:20px">
+  <div class="wrap" style="max-width:1240px">
+    <div class="section-head">
+      <div class="eyebrow">Current listings</div>
+      <h2>Stephen's St.&nbsp;Croix listings</h2>
+      <p>Homes, condos, land and commercial property Stephen represents right now.</p>
+    </div>
+    <div class="lgrid" id="featured"></div>
+    <div class="ctas" style="margin-top:28px"><a class="btn btn-primary" href="/listings">Search all St.&nbsp;Croix listings</a><a class="btn btn-outline" href="/listings#rentals">Long-term rentals</a></div>
+    <div class="disclaimer" data-featured-disclaimer></div>
+  </div>
+</section>
 
 <section id="about">
   <div class="wrap about-grid">
@@ -359,5 +375,7 @@
   </div>
 </footer>
 
+<script src="/assets/listings.js"></script>
+<script>SSListings.featured(document.getElementById("featured"),6);</script>
 </body>
 </html>
