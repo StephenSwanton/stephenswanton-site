@@ -11,6 +11,9 @@ STYLE = '''<style>
 .byline img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:top}
 .posts{display:grid;gap:22px;max-width:860px}.posts a{display:block;padding:22px;border:1px solid var(--glacier);border-top:3px solid var(--cb-blue);text-decoration:none;color:inherit}
 .posts a:hover{box-shadow:0 8px 22px rgba(10,23,48,.12)}.posts h2{font-size:1.4rem;color:var(--cb-blue);margin:6px 0}.posts p{font-weight:300;color:var(--ink-soft)}
+.events{display:grid;gap:14px;margin:22px 0 26px}.ev{display:flex;gap:18px;align-items:flex-start;padding:16px;background:var(--icy);border-left:3px solid var(--cb-blue)}
+.ev .d{flex:0 0 72px;text-align:center;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--smoky);line-height:1.3}.ev .d b{display:block;font-family:var(--display);font-size:1.15rem;font-weight:400;color:var(--cb-blue);letter-spacing:0;white-space:nowrap}
+.ev h3{font-size:1.15rem;color:var(--midnight);font-weight:400;margin-bottom:2px}.ev p{margin:0;font-size:.95rem}
 .meta{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--celestial)}
 </style>'''
 

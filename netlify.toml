@@ -51,3 +51,30 @@
   from = "/privacy-policy"
   to = "/privacy"
   status = 301
+
+# Keep working files (unpublished drafts, source posts, build tools) off the public site
+[[redirects]]
+  from = "/drafts/*"
+  to = "/404.html"
+  status = 404
+  force = true
+[[redirects]]
+  from = "/posts/*"
+  to = "/404.html"
+  status = 404
+  force = true
+[[redirects]]
+  from = "/tools/*"
+  to = "/404.html"
+  status = 404
+  force = true
+[[redirects]]
+  from = "/_forms/*"
+  to = "/404.html"
+  status = 404
+  force = true
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+  force = true
