@@ -16,10 +16,6 @@
   to = "/"
   status = 301
 [[redirects]]
-  from = "/blog"
-  to = "/"
-  status = 301
-[[redirects]]
   from = "/services/page/home-buying"
   to = "/buy"
   status = 301

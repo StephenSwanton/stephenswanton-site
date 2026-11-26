@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://stephenswanton.realtor/</loc>
-    <lastmod>2026-11-24</lastmod>
-  </url>
-  <url>
-    <loc>https://stephenswanton.realtor/privacy</loc>
-    <lastmod>2026-11-24</lastmod>
-  </url>
-  <url>
-    <loc>https://stephenswanton.realtor/terms</loc>
-    <lastmod>2026-11-24</lastmod>
-  </url>
+  <url><loc>https://stephenswanton.realtor/</loc><lastmod>2026-11-25</lastmod></url>
+  <url><loc>https://stephenswanton.realtor/listings</loc><lastmod>2026-11-25</lastmod></url>
+  <url><loc>https://stephenswanton.realtor/buy</loc><lastmod>2026-11-25</lastmod></url>
+  <url><loc>https://stephenswanton.realtor/sell</loc><lastmod>2026-11-25</lastmod></url>
+  <url><loc>https://stephenswanton.realtor/contact</loc><lastmod>2026-11-25</lastmod></url>
+  <url><loc>https://stephenswanton.realtor/blog</loc><lastmod>2026-11-25</lastmod></url>
+  <url><loc>https://stephenswanton.realtor/blog/st-croix-holiday-events-2026</loc><lastmod>2026-11-25</lastmod></url>
+  <url><loc>https://stephenswanton.realtor/blog/st-croix-real-estate-market-update-october-2026</loc><lastmod>2026-11-25</lastmod></url>
+  <url><loc>https://stephenswanton.realtor/privacy</loc><lastmod>2026-11-25</lastmod></url>
+  <url><loc>https://stephenswanton.realtor/terms</loc><lastmod>2026-11-25</lastmod></url>
 </urlset>
