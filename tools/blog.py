@@ -47,7 +47,7 @@ for p in posts:
 items = ''.join(f'''<a href="/blog/{p['slug']}"><div class="meta">{html.escape(p['tag'])} &middot; {nice(p['date'])}</div><h2>{html.escape(p['title'])}</h2><p>{html.escape(p['description'])}</p></a>''' for p in posts)
 body = f'''{STYLE}
 <div class="page-head"><div class="wrap"><div class="eyebrow">Stephen's blog</div><h1>St.&nbsp;Croix real estate and island life</h1><p>Monthly market updates from the MLS, guides for buyers and sellers, and what is happening around St.&nbsp;Croix, from Stephen Swanton, REALTOR&reg;.</p></div></div>
-<main><section class="block"><div class="wrap"><div class="posts">{items}</div></div></section></main>'''
+<main><section class="block"><div class="wrap"><div class="posts">{items or '<p class="sub">The first posts are on the way. Check back soon.</p>'}</div></div></section></main>'''
 open('blog/index.html', 'w').write(re.sub(r'\n\n+', '\n', pages.page('blog', 'Blog: St. Croix Real Estate and Island Life | Stephen Swanton', 'St. Croix, USVI real estate market updates, buyer and seller guides, and island events from Stephen Swanton, Coldwell Banker St. Croix Realty.', body, 'Blog')))
 
 urls = ['', 'listings', 'buy', 'sell', 'contact', 'blog'] + [f"blog/{p['slug']}" for p in posts] + ['privacy', 'terms']
